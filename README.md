@@ -22,3 +22,4 @@ Use this as a starting point to complete the WDD 330 team activity: the SleepOut
 ## Domain Name
 
 - wdd330-blue-lobster-app.netlify.app
+- Test
