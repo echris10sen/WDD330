@@ -14,3 +14,10 @@ async function addToCartHandler(e) {
 document
   .getElementById("addToCart")
   .addEventListener("click", addToCartHandler);
+
+function addSuperToCart(items){
+  addToCartHandler(e)
+  let items = 0;
+  
+  
+}
