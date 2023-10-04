@@ -1,10 +1,10 @@
 import { getLocalStorage } from "./utils.mjs";
 
 function renderCartContents() {
-  const cartItems = [getLocalStorage("so-cart")];
+  const cartItems = getLocalStorage("so-cart");
 
   // Error Checking: If Local Storage is Null Do Nothing
-  if (cartItems[0] === null) {
+  if (cartItems === null) {
     return;
   }
 
