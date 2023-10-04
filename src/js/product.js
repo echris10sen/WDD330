@@ -3,10 +3,9 @@
 import productDetails from "./productDetails.mjs";
 import { getParam } from "./utils.mjs";
 
-const productId= getParam('product');
-productDetails(productId, ".product-detail")
+const productId = getParam("product");
+productDetails(productId, ".product-detail");
 // console.log(findProductById(productId))
-
 
 // // add to cart button event handler
 // async function addToCartHandler(e) {
