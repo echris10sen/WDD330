@@ -1,4 +1,4 @@
-import { setLocalStorage } from "./utils.mjs";
+import { getLocalStorage, setLocalStorage } from "./utils.mjs";
 import { findProductById } from "./productData.mjs";
 let product = {};
 
@@ -13,11 +13,24 @@ export default async function productDetails(productId, selector){
 
 }
 
-function addToCart(product) {
-    setLocalStorage("so-cart", product);
+async function addToCart(e) {
+    //Initialize the Cart if not already done so
+    initCart();    
+    
+    // Get the selected product
+    product = await findProductById(e.target.dataset.id);
+    
+    // Get the cart contents
+    let cart = getCart();
+
+    // Add product to the cart
+    cart.push(product);
+
+    // Add cart to Local Storage;
+    setCart(cart);
 }
 
-function productDetailsTemplate(product) {
+function productDetailsTemplate() {
     return `<h3>${product.Brand.Name}</h3>
         <h2 class="divider" id="productNameWithoutBrand">${product.NameWithoutBrand}</h2>
         <img
@@ -32,4 +45,26 @@ function productDetailsTemplate(product) {
         <div class="product-detail__add">
             <button id="addToCart" data-id="${product.Id}">Add to Cart</button>
         </div> `;
+}
+
+/************************** 
+ * Cart handling functions 
+ *************************/
+
+// gets Cart from LocalStorage
+function getCart() {
+    return getLocalStorage("so-cart"); 
+}
+
+// Sets Cart to Local storage
+function setCart(cart) {
+    setLocalStorage("so-cart", cart);  
+}
+
+// Initializes Cart to an array
+function initCart() {
+    const cart = [];
+    if (getCart() === null){
+      setCart(cart);
+    };
 }
