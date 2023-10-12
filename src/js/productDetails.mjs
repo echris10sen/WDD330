@@ -10,7 +10,7 @@ export default async function productDetails(productId, selector){
     el.insertAdjacentHTML("afterBegin", productDetailsTemplate(product));
     // add a listener to Add to Cart button
     document.getElementById("addToCart").addEventListener("click", addToCart);
-    document.getElementById("addToCart").addEventListener("click", animate.bind);
+    document.getElementById("addToCart").addEventListener("click", animate);
 }
 
 async function addToCart(e) {
