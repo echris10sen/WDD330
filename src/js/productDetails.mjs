@@ -1,5 +1,7 @@
 import { getLocalStorage, setLocalStorage } from "./utils.mjs";
 import { findProductById } from "./productData.mjs";
+import { cartCount } from "./stores.mjs";
+
 let product = {};
 
 export default async function productDetails(productId, selector){
@@ -10,7 +12,7 @@ export default async function productDetails(productId, selector){
     el.insertAdjacentHTML("afterBegin", productDetailsTemplate(product));
     // add a listener to Add to Cart button
     document.getElementById("addToCart").addEventListener("click", addToCart);
-
+    document.getElementById("addToCart").addEventListener("click", animate);
 }
 
 async function addToCart(e) {
@@ -25,6 +27,7 @@ async function addToCart(e) {
 
     // Add product to the cart
     cart.push(product);
+    cartCount.set()
 
     // Add cart to Local Storage;
     setCart(cart);
@@ -67,4 +70,14 @@ function initCart() {
     if (getCart() === null){
       setCart(cart);
     };
+}
+
+/************************** 
+ * Animate cart trello card
+ *************************/
+function animate() {
+    let icon = document.getElementById("backpack-icon");
+    icon.setAttribute("class", "cartspin");
+    var newicon = icon;
+    icon.parentNode.replaceChild(newicon, icon);
 }

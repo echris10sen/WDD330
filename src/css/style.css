@@ -220,3 +220,21 @@ footer {
   font-size: var(--small-font);
   padding: 1em;
 }
+
+/*************************************
+* Animate cart icon trello card styles
+**************************************/
+.cartspin{
+  animation: rotate-right 1200ms linear;
+}
+@keyframes rotate-right 
+{
+  from
+  {
+    transform: rotateZ(0);
+  }
+  to
+  {
+    transform: rotateZ(720deg);
+  }
+}
