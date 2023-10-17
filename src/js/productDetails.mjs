@@ -10,7 +10,7 @@ export default async function productDetails(productId, selector){
     el.insertAdjacentHTML("afterBegin", productDetailsTemplate(product));
     // add a listener to Add to Cart button
     document.getElementById("addToCart").addEventListener("click", addToCart);
-
+    document.getElementById("addToCart").addEventListener("click", animate);
 }
 
 async function addToCart(e) {
@@ -67,4 +67,14 @@ function initCart() {
     if (getCart() === null){
       setCart(cart);
     };
+}
+
+/************************** 
+ * Animate cart trello card
+ *************************/
+function animate() {
+    let icon = document.getElementById("backpack-icon");
+    icon.setAttribute("class", "cartspin");
+    var newicon = icon;
+    icon.parentNode.replaceChild(newicon, icon);
 }
