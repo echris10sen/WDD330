@@ -11,6 +11,7 @@ export default async function productDetails(productId, selector){
     // add a listener to Add to Cart button
     document.getElementById("addToCart").addEventListener("click", addToCart);
     document.getElementById("addToCart").addEventListener("click", animate.bind);
+    document.getElementById("addToCart").addEventListener("click", superScript);
 }
 
 async function addToCart(e) {
@@ -78,3 +79,10 @@ function animate() {
     var newicon = icon;
     icon.parentNode.replaceChild(newicon, icon);
 }
+
+
+function superScript(){
+      document.getElementById('super').style.backgroundColor = 'orange';
+      document.getElementById('super').innerHTML = cart.length();
+  
+    }

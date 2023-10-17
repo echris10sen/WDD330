@@ -19,6 +19,17 @@ function renderCartContents() {
     }
 }
 
+function superScript(){
+  if (cartItems[0] === null){
+    return;
+  }
+  if (cartItems[0] === true){
+    document.getElementById('super').style.backgroundColor = 'orange';
+    document.getElementById('super').innerHTML = cartItems.length();
+
+  }
+}
+
 function cartItemTemplate(item) {
   const newItem = `<li class="cart-card divider">
   <a href="#" class="cart-card__image">
