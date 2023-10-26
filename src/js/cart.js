@@ -4,8 +4,10 @@ import { renderHeaderFooter } from "./utils.mjs";
 renderHeaderFooter();
 totalCart();
 
+
 function renderCartContents() {
   const cartItems = getLocalStorage("so-cart");
+ 
 
   // Error Checking: If Local Storage is Null Do Nothing
   if (cartItems === null) {
@@ -63,30 +65,13 @@ function removeItem() {
  * Total in cart
  *********************************************/
 function totalCart(){
-  const cartItems = getLocalStorage("so-cart");
-  let sum = 10.00;
+  const cartItems = getLocalStorage("so-cart") || [];
+  
 
-  // Error Checking: If Local Storage is Null Do Nothing
-  if (cartItems == null) {
-    document.querySelector(".total").innerHTML = `Total: $000.00`;
-    
-  }
-  else {
-    array.forEach(cartItems => {
-      sum += cartItems.FinalPrice;
-    })
-
-    
-    document.querySelector(".total").innerHTML = `Total: $${sum}`;
-  }
-
-  // const Items = cartItems.map((item) => cartItemTemplate(item));
-  // array.forEach(Items => {
-  //   total = 0.0
-  //   total += Items.FinalPrice
-  //   document.querySelector(".total").innerHTML = `Total: $${total}`
-  // });
-  //document.querySelector(".total").innerHTML = `Test`;
+  const amounts = cartItems.map((price) => price.FinalPrice);
+    let total = amounts.reduce((sum, price) => sum + price, 0);
+    document.querySelector(".total").innerHTML = `Total: $${total}`;
+    console.log(total);
 }
 
 
