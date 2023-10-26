@@ -64,7 +64,7 @@ function removeItem() {
  *********************************************/
 function totalCart(){
   const cartItems = getLocalStorage("so-cart");
-  let sum = 0.00;
+  let sum = 10.00;
 
   // Error Checking: If Local Storage is Null Do Nothing
   if (cartItems == null) {
@@ -72,7 +72,12 @@ function totalCart(){
     
   }
   else {
-    document.querySelector(".total").innerHTML = 'Total: $100.00';
+    array.forEach(cartItems => {
+      sum += cartItems.FinalPrice;
+    })
+
+    
+    document.querySelector(".total").innerHTML = `Total: $${sum}`;
   }
 
   // const Items = cartItems.map((item) => cartItemTemplate(item));
