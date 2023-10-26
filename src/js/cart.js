@@ -2,6 +2,7 @@ import { getLocalStorage, setLocalStorage } from "./utils.mjs";
 import { renderHeaderFooter } from "./utils.mjs";
 
 renderHeaderFooter();
+totalCart();
 
 function renderCartContents() {
   const cartItems = getLocalStorage("so-cart");
@@ -58,5 +59,31 @@ function removeItem() {
   location.reload();
 }
 
+/***********************************************
+ * Total in cart
+ *********************************************/
+function totalCart(){
+  const cartItems = getLocalStorage("so-cart");
+  let sum = 0.00;
+
+  // Error Checking: If Local Storage is Null Do Nothing
+  if (cartItems == null) {
+    document.querySelector(".total").innerHTML = `Total: $000.00`;
+    
+  }
+  else {
+    document.querySelector(".total").innerHTML = 'Total: $100.00';
+  }
+
+  // const Items = cartItems.map((item) => cartItemTemplate(item));
+  // array.forEach(Items => {
+  //   total = 0.0
+  //   total += Items.FinalPrice
+  //   document.querySelector(".total").innerHTML = `Total: $${total}`
+  // });
+  //document.querySelector(".total").innerHTML = `Test`;
+}
+
 
 renderCartContents();
+
