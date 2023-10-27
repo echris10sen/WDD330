@@ -2,6 +2,8 @@ import { getLocalStorage, setLocalStorage } from "./utils.mjs";
 import { renderHeaderFooter } from "./utils.mjs";
 
 renderHeaderFooter();
+totalCart()
+
 
 function renderCartContents() {
   const cartItems = getLocalStorage("so-cart");
@@ -57,6 +59,20 @@ function removeItem() {
   // re-render the cart contents, done by reloading the page
   location.reload();
 }
+
+/***********************************************
+ * Total in cart
+ *********************************************/
+function totalCart(){
+  const cartItems = getLocalStorage("so-cart") || [];
+  
+
+  const amounts = cartItems.map((price) => price.FinalPrice);
+    let total = amounts.reduce((sum, price) => sum + price, 0);
+    document.querySelector(".total").innerHTML = `Total: $${total}`;
+    console.log(total);
+}
+
 
 
 renderCartContents();
