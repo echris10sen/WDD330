@@ -39,7 +39,7 @@ function productDetailsTemplate() {
         <img
           id="productImage"
           class="divider"
-          src="${product.Image}"
+          src="${product.Images.PrimaryLarge}"
           alt=""${product.Name}
         />
         <p class="product-card__price" id="productFinalPrice">${product.FinalPrice}</p>

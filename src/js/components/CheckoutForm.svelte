@@ -1,27 +1,30 @@
 <script>
     import { getLocalStorage } from "../utils.mjs";
-    export let tax;
-    export let count;
-    export let shipping;
-    export let total;
-    let ftotal;
+    import {totalCart} from "../cart.js";
+    export let key = "";
+    let tax = 0;
+    let count = 0;
+    let shipping = 0;
+    let total = totalCart();
+    
     
     function calculateItemSummary(){
         let tax = 0.06;
         let shipping = 8 + (2 * count);
-        ftotal = total + (total * tax) + shipping;
+        let ftotal = total + (total * tax) + shipping;
         return ftotal;
     }
     function init(){
         let cartItems = getLocalStorage("so-cart") || [];
   
-        let 
+        
         // const amounts = cartItems.map((price) => price.FinalPrice);
         // let total = amounts.reduce((sum, price) => sum + price, 0);
         // document.querySelector(".total").innerHTML = `Total: $${total}`;
         // console.log(total);
     }
-
+    init();
+    let orderTotal = calculateItemSummary();
 </script>
 
 <h2>Review & Place your Order</h2>
