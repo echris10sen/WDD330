@@ -7,18 +7,11 @@
     let shipping = 0;
     let tax = 0;
     let orderTotal = 0;
-    // let count = 0;
-    // let total = 0;
     
     
     const calculateItemSummary = function () {
         const amounts = list.map((item) => item.FinalPrice);
         itemTotal = amounts.reduce((sum, item) => sum + item);
-    
-        // let tax = 0.06;
-        // let shipping = 8 + (2 * count);
-        // let ftotal = total + (total * tax) + shipping;
-        // return ftotal;
     }
     const calculateOrdertotal = function () {
         shipping = 10 + (list.length - 1) * 2;
@@ -32,11 +25,6 @@
     function init(){
         list = getLocalStorage("so-cart");
         calculateItemSummary()
-        
-        // const amounts = cartItems.map((price) => price.FinalPrice);
-        // let total = amounts.reduce((sum, price) => sum + price, 0);
-        // document.querySelector(".total").innerHTML = `Total: $${total}`;
-        // console.log(total);
     }
     init();
     calculateOrdertotal();
