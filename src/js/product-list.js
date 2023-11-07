@@ -1,8 +1,8 @@
 import ProductList from "./components/ProductList.svelte";
-// import { renderHeaderFooter } from "./utils.mjs";
+import { renderHeaderFooter } from "./utils.mjs";
 import { getParam } from "./utils.mjs";
 
-// renderHeaderFooter();
+renderHeaderFooter();
 
 new ProductList({
     target: document.querySelector(".products"),

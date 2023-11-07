@@ -1,5 +1,5 @@
 import { getLocalStorage, setLocalStorage } from "./utils.mjs";
-import { findProductById } from "./productData.mjs";
+import { findProductById } from "./externalServices.mjs";
 import { cartCount } from "./stores.mjs";
 
 let product = {};
@@ -39,7 +39,7 @@ function productDetailsTemplate() {
         <img
           id="productImage"
           class="divider"
-          src="${product.Image}"
+          src="${product.Images.PrimaryLarge}"
           alt=""${product.Name}
         />
         <p class="product-card__price" id="productFinalPrice">${product.FinalPrice}</p>
