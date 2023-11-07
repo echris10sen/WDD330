@@ -4,5 +4,5 @@ import { renderHeaderFooter } from "./utils.mjs";
 renderHeaderFooter();
 new CheckoutForm ({
     target: document.querySelector(".checkout-form"),
-    props: { tax: 0 }
+    props: { key: "so-cart" }
 })

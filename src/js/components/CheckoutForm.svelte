@@ -1,5 +1,5 @@
 <script>
-    import { getLocalStorage, formDataToJSON } from "../utils.mjs";
+    import { setLocalStorage, getLocalStorage, formDataToJSON, alertMessage, removeAllAlerts } from "../utils.mjs";
     import { checkout } from "../externalServices.mjs";
     export let key = "";
     let list = [];
@@ -41,9 +41,6 @@
     return simplifiedItems;
     };
     const handleSubmit = async function (e) {
-        // build the data object from the calculated fields, the items in the cart, and the information entered into the form
-        // remember that the form that was submitted can be found two ways...this or e.target 
-        // call the checkout method in our externalServices module and send it our data object.
         const json = formDataToJSON(this);
         // add totals, and item details
         json.orderDate = new Date();
@@ -55,9 +52,16 @@
         try {
             const res = await checkout(json);
             console.log(res);
+            // setLocalStorage("so-cart", []); // clear the cart
+            // location.assign("/checkout/success.html"); // redirect user to "Success!" page
         } catch (err) {
+            removeAllAlerts();
+            for (let message in err.message) {
+                alertMessage(err.message[message]);
+            }
+
             console.log(err);
-        }
+        }   
     };
     init();
     calculateOrdertotal();
