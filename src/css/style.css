@@ -242,10 +242,12 @@ footer {
 /* Styling for main menu icons */
 .main-menu {
   display: inline-grid;
+  grid-row: 1;
   gap: 2em;
   margin-left: 20%;
   margin-right: 20%;
 }
-.main-menu div {
+/* .main-menu div {
+  display: block;
   grid-row: 1;
-}
+} */

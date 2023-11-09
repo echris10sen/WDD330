@@ -23,7 +23,7 @@ async function addToCart(e) {
     product = await findProductById(e.target.dataset.id);
     
     // Get the cart contents
-    let cart = getCart();
+    let cart = getCart(); 
 
     // Add product to the cart
     cart.push(product);
