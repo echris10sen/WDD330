@@ -238,3 +238,14 @@ footer {
     transform: rotateZ(720deg);
   }
 }
+
+/* Styling for main menu icons */
+.main-menu {
+  display: inline-grid;
+  gap: 2em;
+  margin-left: 20%;
+  margin-right: 20%;
+}
+.main-menu div {
+  grid-row: 1;
+}

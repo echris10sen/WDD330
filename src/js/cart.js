@@ -1,8 +1,9 @@
 import { getLocalStorage, setLocalStorage } from "./utils.mjs";
 import { renderHeaderFooter } from "./utils.mjs";
 
+
 renderHeaderFooter();
-totalCart();
+totalCart()
 
 
 function renderCartContents() {
@@ -29,7 +30,7 @@ function cartItemTemplate(item) {
   const newItem = `<li class="cart-card divider">
   <a href="#" class="cart-card__image">
     <img
-      src="${item.Image}"
+      src="${item.Images.PrimarySmall}"
       alt="${item.Name}"
     />
   </a>
@@ -64,7 +65,7 @@ function removeItem() {
 /***********************************************
  * Total in cart
  *********************************************/
-function totalCart(){
+export function totalCart(){
   const cartItems = getLocalStorage("so-cart") || [];
   
 
@@ -73,6 +74,7 @@ function totalCart(){
     document.querySelector(".total").innerHTML = `Total: $${total}`;
     console.log(total);
 }
+
 
 
 renderCartContents();

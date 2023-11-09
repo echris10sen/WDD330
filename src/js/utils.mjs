@@ -43,5 +43,17 @@ export function renderHeaderFooter() {
 }
 
 export function getCartCount() {
-  return 42;
+  const count = getLocalStorage("so-cart")?.length ?? 0;
+  return count;
+}
+
+export function formDataToJSON(formElement) {
+  const formData = new FormData(formElement),
+    convertedJSON = {};
+
+  formData.forEach(function (value, key) {
+    convertedJSON[key] = value;
+  });
+
+  return convertedJSON;
 }
